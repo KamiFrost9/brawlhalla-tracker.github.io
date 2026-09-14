@@ -28,11 +28,12 @@ space{
 }
 
 .cell text {
+  font-size: 20px;
   display:flow-root;
-  max-width: 300px;
-  max-height: 100px;
-  text-align: center;
-  margin: 0px -5px;
+  max-width: 128px;
+  min-height: 45px;
+  text-align:center;
+  margin: -2px 0px;
   color: #FFFFFF;
   text-decoration: none;
 }
