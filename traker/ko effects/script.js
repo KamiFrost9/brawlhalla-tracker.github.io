@@ -8,18 +8,58 @@ var list;
 document.addEventListener ("DOMContentLoaded", handleDocumentLoad);
 
 const objdata=[
-    "Default",
-    "Soul Blast",
-    "Echoes of Balance",
-    "Fenrir's Eminence",
-    "Surt's Wrath",
-    "Flames of Muspelheim",
-    "Shadow Dragon"
+"Smoke N' Stars",
+"Flames of Ragnarok",
+"High Score!",
+"Party Time",
+"Astral Prison",
+"Thor's Applause",
+"T-Rekt",
+"Balefire Wyrm",
+"Loki's Grasp",
+"Medieval Dragon",
+"Rainicorn Rumble",
+"Malachite",
+"Vilgax",
+"Walker's Grasp",
+"Master Shifu",
+"Enter The Shredder",
+"Knockout",
+"Desynchronization",
+"Cabbage Merchant",
+"Grunt Explosion",
+"Panda Slam",
+"King Jellyfish",
+"Mega Man KO",
+"Mirage's Fury",
+"No Escape",
+"Yunyun's Protection",
+"KO-Ching!",
+"XO KO",
+"Hot Lava",
+"Frostbite",
+"Jac-KO-Lantern",
+"Smiling Titan",
+"Bite the Dusk",
+"Mongo",
+"Hellfire",
+"Digital Breakdown.wav",
+"Nidhogg's Appetite",
+"Unchained Resolve",
+"Black Hole",
+"Flower Food",
+"Dice Hoarder",
+"Darkheart Metamorphosis",
+"Fallout",
+"Hana-KO-toba",
+"Triumphant Return",
+"Shadow Clone",
+"Malakkar"
 ]
 
 function handleDocumentLoad() {
     var table = document.getElementById("table");
-    list=getCookielist("trails");
+    list=getCookielist("KOeffects");
     for (let i = 0; i < objdata.length; i++) {
         makeframe(table,i);
     }
@@ -33,7 +73,7 @@ function makeframe(table,i){
     cell.id="cell"+i+"id";
     let space = document.createElement('space');
     const tname=objdata[i];
-    img.src="/assets/trail/"+tname+".gif";
+    img.src="/assets/KOeffect/"+tname+".gif";
     img.addEventListener('error',function() {img.src="/assets/other/not_found.png";});
     cell.className="cell";
     let name = document.createElement('text');

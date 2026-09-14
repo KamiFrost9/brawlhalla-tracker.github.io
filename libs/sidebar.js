@@ -45,7 +45,7 @@ function home(){
     img.className="img2";
     img.src="/assets/other/Logo_Brawlhalla.png"
     cell.appendChild(img);
-    cell.href= "../";
+    cell.href= "/";
     return cell;
 }
 
