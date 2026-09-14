@@ -1,0 +1,19 @@
+body {
+  background-color: white;
+}
+
+h1 {
+  color: black;
+  text-align: center;
+}
+
+p {
+  font-family: verdana;
+  font-size: 20px;
+}
+
+
+img {
+     content: url("../assets/colors/150px-Color_Blue.png");
+     width: 90px;
+}

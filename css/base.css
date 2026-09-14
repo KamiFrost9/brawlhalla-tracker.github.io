@@ -1,0 +1,49 @@
+@import url("./sidebar.css");
+
+body {
+ color: white;
+  text-align: center;
+  background:#0D132B;
+}
+
+footer {
+  text-align: center;
+  display: block;
+}
+
+.cell {
+  display: inline-table;
+  position: relative; 
+  max-width: 300px;
+  max-height: 400px;
+  border-radius: 15px;
+  padding: 5px;
+  margin: 5px 5px;
+  text-decoration: none;
+}
+
+space{
+  display:flow-root;
+  margin: 5px 5px;
+}
+
+.cell text {
+  display:flow-root;
+  max-width: 300px;
+  max-height: 100px;
+  text-align: center;
+  margin: 0px -5px;
+  color: #FFFFFF;
+  text-decoration: none;
+}
+
+.img1 {
+  display: inline-block; 
+  max-width: 300px;
+  max-height: 300px;
+  border-radius: 15px;
+  height: 128px;
+  width: 128px;
+  padding: 5px;
+  margin: -5px -5px;
+}
