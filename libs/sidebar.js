@@ -34,7 +34,7 @@ function item(name){
     text.className="sidetext";
     text.innerText=name;
     cell.appendChild(text);
-    cell.href= "/"+name+"/";
+    cell.href= "/traker/"+name+"/";
     return cell;
 }
 
