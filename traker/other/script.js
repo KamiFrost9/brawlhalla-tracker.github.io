@@ -143,9 +143,8 @@ function maketable(v,defaulttable){
         list[v]=getCookielist(v);
         const gif=(v=="ko effects"||v=="trails");
         for (let i = 0; i < objdata[v].length; i++) {
-        makeframe(v,table,i,gif);
-        }
-    
+            makeframe(v,table,i,gif);
+        } 
 }
 
 function makeframe(typename,table,i,gif){
@@ -163,7 +162,7 @@ function makeframe(typename,table,i,gif){
     cell.className="cell";
     let name = document.createElement('text');
     name.innerHTML = tname;
-    const type=(i==0)?OWNINGTYPE.always:OWNINGTYPE.buy;
+    const type=gettype(i,typename);
     img.appendChild(img2);
     cell.appendChild(img);
     cell.appendChild(space);
@@ -174,6 +173,11 @@ function makeframe(typename,table,i,gif){
     }
     setback(i,type,typename);
 }
+
+function gettype(i,typename){
+ return (i==0)?OWNINGTYPE.always:OWNINGTYPE.buy;
+}
+
 
 function movetrail(typename,i,type){
     list[typename]=bitflip(list[typename],i);
