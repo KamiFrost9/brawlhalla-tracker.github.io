@@ -4,6 +4,8 @@ import {} from '/libs/sidebar.js';
 import { setherocolorccc } from '/libs/colors.js';
 import {colorbytype,OWNINGTYPE} from '/libs/colorsname.js';
 import {bitget,bitflip } from '/libs/bitlist.js';
+import {updatefromlevelall } from '/libs/xplevel.js';
+
 
 var colorname;
 var colorlist;

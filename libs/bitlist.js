@@ -32,6 +32,10 @@ export function bitto0(list,pos){
     return list;
 }
 
+export function bitset(list,pos,bool){
+    return (bool)?bitto1(list,pos):bitto0(list,pos);
+}
+
 export function bitflip(list,pos){
 return (bitget(list,pos))?bitto0(list,pos):bitto1(list,pos);
 }

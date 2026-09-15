@@ -1,6 +1,7 @@
 import { getlegendname,maxheros } from '/libs/heros.js';
 import { getlegendown,fliplegendown,getlegendxp,setlegendxp } from '/libs/nodes.js';
 import {} from '/libs/sidebar.js';
+import {updatefromlevel } from '/libs/xplevel.js';
 document.addEventListener ("DOMContentLoaded", handleDocumentLoad);
 
 function setowncolor(image, own) {
@@ -66,6 +67,7 @@ function handleDocumentLoad() {
   
   function setlevel() {
     setlegendxp(legendId,parseInt(xpnumber.value));
+    updatefromlevel(legendId); 
   }  
 
   function own() {
@@ -74,6 +76,8 @@ function handleDocumentLoad() {
     fliplegendown(legendId);
   }
   
+  increaseButton.addEventListener("keypress", () => incriese(legendId));
+
   increaseButton.addEventListener("click", () => incriese(legendId));
   decreaseButton.addEventListener("click", () => decrease(legendId));  
   levelButton.addEventListener("click",setlevel);
