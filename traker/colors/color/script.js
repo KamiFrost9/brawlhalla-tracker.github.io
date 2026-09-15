@@ -60,13 +60,16 @@ function findlegend(legend){
 }
 
 function movecolor(l,type){
-    colorlist=(l==0)?((colorlist[0]==1)?[]:[1]):bitflip(colorlist,l);
     if(l==0){
-        for(let i = 1; i <= maxheros; i++){
+        colorlist=(colorlist[0]==1)?[]:[1];
+        for(let i = 0; i <= maxheros; i++){
             setback(i,type);
-        }}
+        }
+    }else if(colorlist[0]!=1){
+        colorlist=bitflip(colorlist,l);
         setback(l,type);
-    setcolor(colorname,colorlist);
+        setcolor(colorname,colorlist);
+    }
 }
 
 function setback(i,type){
