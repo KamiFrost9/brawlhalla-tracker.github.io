@@ -42,7 +42,7 @@ export function addCookie(newobj,idName,coockieName) {
   var obj = JSON.parse(getbaseCookie(coockieName));
   obj=saveObjects(obj, idName, newobj);
   //console.log(obj);
-    console.log(JSON.stringify(obj));
+  //console.log(JSON.stringify(obj));
   setbaseCookie(coockieName, JSON.stringify(obj));
 }
 function saveObjects(obj, key, newObj) {

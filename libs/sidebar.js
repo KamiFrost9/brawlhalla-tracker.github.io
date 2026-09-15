@@ -4,26 +4,16 @@ let div = document.createElement('div');
 div.className="sidenav";
 
 div.appendChild(home());
-div.appendChild(item("legends"));
-div.appendChild(item("colors"));
-div.appendChild(item("weapons"));
-div.appendChild(item("emotes"));
-div.appendChild(item("sidekicks"));
-div.appendChild(item("companions"));
-div.appendChild(item("trails"));
-div.appendChild(item("avatars"));
-div.appendChild(item("titles"));
-div.appendChild(item("ko effects"));
-div.appendChild(item("frames"));
-div.appendChild(item("insignias"));
-div.appendChild(item("podiums"));
-div.appendChild(item("emojis"));
-div.appendChild(item("other"));
+div.appendChild(traker("legends"));
+div.appendChild(traker("colors"));
+div.appendChild(traker("weapons"));
+div.appendChild(traker("titles"));
+div.appendChild(traker("other"));
  
 document.body.appendChild(div);
 }
 
-function item(name){
+function traker(name){
     let cell = document.createElement('a');
     cell.className="sidea";
     let img = document.createElement('img');
