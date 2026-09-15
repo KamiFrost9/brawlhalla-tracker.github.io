@@ -7,7 +7,6 @@ body {
 }
 
 footer {
-  text-align: center;
   display: block;
 }
 
@@ -30,7 +29,7 @@ space{
 .cell text {
   font-size: 20px;
   display:flow-root;
-  max-width: 128px;
+  max-width: 140px;
   min-height: 45px;
   text-align:center;
   margin: -2px 0px;
@@ -39,12 +38,27 @@ space{
 }
 
 .img1 {
-  display: inline-block; 
-  max-width: 300px;
-  max-height: 300px;
+  position:absolute;
+  max-width: 140px;
+  max-height: 140px;
+  vertical-align:middle;
+  
+  left:0;
+  top:0;
+  bottom: 0;
+  right: 0;
+  margin: auto;
+  background-size: cover;
+}
+
+.img4 {
+  position: relative;
+  vertical-align: middle;
+  display:inline-table; 
+  width: 140px;
+  height: 140px;
   border-radius: 15px;
-  height: 128px;
-  width: 128px;
   padding: 5px;
   margin: -5px -5px;
+  background-size: cover;
 }

@@ -67,21 +67,24 @@ function handleDocumentLoad() {
 
 function makeframe(table,i){
     let cell = document.createElement('a');
-    let img = document.createElement('img');
-    img.className="img1";
+    let img = document.createElement('div');
+    let img2 = document.createElement('img');
+    img.className="img4";
+    img2.className="img1";
     img.id="img"+i+"id";
     cell.id="cell"+i+"id";
     let space = document.createElement('space');
     const tname=objdata[i];
-    img.src="/assets/KOeffect/"+tname+".gif";
-    img.addEventListener('error',function() {img.src="/assets/other/not_found.png";});
+    img2.src="/assets/KOeffect/"+tname+".gif";
+    img2.addEventListener('error',function() {img2.src="/assets/other/not_found.png";});
     cell.className="cell";
     let name = document.createElement('text');
     name.innerHTML = tname;
     const type=(i==0)?OWNINGTYPE.always:OWNINGTYPE.buy;
+    img.appendChild(img2);
     cell.appendChild(img);
     cell.appendChild(space);
-    cell.appendChild(name);    
+    cell.appendChild(name);  
     table.appendChild(cell);
     if(type!=OWNINGTYPE.always){
         cell.addEventListener('click',()=>movetrail(i,type));

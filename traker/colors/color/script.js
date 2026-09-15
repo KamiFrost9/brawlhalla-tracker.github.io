@@ -10,6 +10,7 @@ import {updatefromlevelall } from '/libs/xplevel.js';
 var colorname;
 var colorlist;
 document.addEventListener ("DOMContentLoaded", handleDocumentLoad);
+
 function getparameter(urlParams) {
   var colorname = urlParams.get('name');
   if (colorname === null) {
@@ -19,6 +20,8 @@ function getparameter(urlParams) {
   }
   return colorname;
 }
+
+
 
 function handleDocumentLoad() {
     const urlParams = new URLSearchParams(window.location.search);
@@ -35,17 +38,19 @@ function handleDocumentLoad() {
 }
 function makeframe(table,i,type){
     let cell = document.createElement('a');
-    let img = document.createElement('img');
-    img.className="img1";
+    let img = document.createElement('div');
+    let img2 = document.createElement('img');
+    img.className="img4";
+    img2.className="img1";
     img.id="img"+i+"id";
     cell.id="cell"+i+"id";
     let space = document.createElement('space');
-    img.src=(i==0)?"/assets/colors/Color_"+colorname+".png":"/assets/faces/face_"+i+".png";
-    img.addEventListener('error',function() {img.src="/assets/faces/face_unkown.webp";});
+    img2.src=(i==0)?"/assets/colors/Color_"+colorname+".png":"/assets/faces/face_"+i+".png";
+    img2.addEventListener('error',function() {img2.src="/assets/faces/face_unkown.webp";});
     cell.className="cell";
     let name = document.createElement('text');
     name.innerHTML = getlegendname(i);
-    
+    img.appendChild(img2);
     cell.appendChild(img);
     cell.appendChild(space);
     cell.appendChild(name);    
@@ -70,8 +75,8 @@ function movecolor(l,type){
     }else if(colorlist[0]!=1){
         colorlist=bitflip(colorlist,l);
         setback(l,type);
-        setcolor(colorname,colorlist);
-    }
+    }    
+    setcolor(colorname,colorlist);
 }
 
 function setback(i,type){
