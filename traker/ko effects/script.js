@@ -91,7 +91,7 @@ function makeframe(table,i){
 
 function movetrail(i,type){
     list=bitflip(list,i);
-    addCookie(list,null,"trails");
+    addCookie(list,null,"KOeffects");
     setback(i,type);
 }
 
