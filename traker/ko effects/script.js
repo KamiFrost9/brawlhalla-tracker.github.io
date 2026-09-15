@@ -4,10 +4,11 @@ import { OWNINGTYPE } from '../../libs/colorsname.js';
 import {bitget,bitflip } from '../../libs/bitlist.js';
 import { addCookie,getCookielist} from '../../libs/cookies.js';
 
-var list;
+var list={};
 document.addEventListener ("DOMContentLoaded", handleDocumentLoad);
 
-const objdata=[
+const objdata={
+    "ko effects":[
 "Smoke N' Stars",
 "Flames of Ragnarok",
 "High Score!",
@@ -55,27 +56,54 @@ const objdata=[
 "Triumphant Return",
 "Shadow Clone",
 "Malakkar"
+],
+    "trails":[
+    "Default",
+    "Soul Blast",
+    "Echoes of Balance",
+    "Fenrir's Eminence",
+    "Surt's Wrath",
+    "Flames of Muspelheim",
+    "Shadow Dragon"
 ]
+}
 
 function handleDocumentLoad() {
     var table = document.getElementById("table");
-    list=getCookielist("KOeffects");
-    for (let i = 0; i < objdata.length; i++) {
-        makeframe(table,i);
+    for(let v in objdata){
+        maketable(v,table);
     }
 }
 
-function makeframe(table,i){
+function maketable(v,defaulttable){
+    
+        let table = document.createElement('footer');
+        let footer = document.createElement('footer');
+        let title = document.createElement('h1');
+        
+        footer.appendChild(title);
+        defaulttable.appendChild(footer);
+        defaulttable.appendChild(table);
+
+        title.innerHTML=v;
+        list[v]=getCookielist(v);
+        for (let i = 0; i < objdata[v].length; i++) {
+        makeframe(v,table,i);
+        }
+    
+}
+
+function makeframe(typename,table,i){
     let cell = document.createElement('a');
     let img = document.createElement('div');
     let img2 = document.createElement('img');
     img.className="img4";
     img2.className="img1";
-    img.id="img"+i+"id";
-    cell.id="cell"+i+"id";
+    img.id="img"+i+typename;
+    cell.id="cell"+i+typename;
     let space = document.createElement('space');
-    const tname=objdata[i];
-    img2.src="/assets/KOeffect/"+tname+".gif";
+    const tname=objdata[typename][i];
+    img2.src="/assets/"+typename+"/"+tname+".gif";
     img2.addEventListener('error',function() {img2.src="/assets/other/not_found.png";});
     cell.className="cell";
     let name = document.createElement('text');
@@ -87,19 +115,19 @@ function makeframe(table,i){
     cell.appendChild(name);  
     table.appendChild(cell);
     if(type!=OWNINGTYPE.always){
-        cell.addEventListener('click',()=>movetrail(i,type));
+        cell.addEventListener('click',()=>movetrail(typename,i,type));
     }
-    setback(i,type);
+    setback(i,type,typename);
 }
 
-function movetrail(i,type){
+function movetrail(typename,i,type){
     list=bitflip(list,i);
-    addCookie(list,null,"KOeffects");
-    setback(i,type);
+    addCookie(list,null,typename);
+    setback(i,type,typename);
 }
 
-function setback(i,type){
-    var img = document.getElementById("img"+i+"id");
-    var cell = document.getElementById("cell"+i+"id");
+function setback(i,type,typename){
+    var img = document.getElementById("img"+i+typename);
+    var cell = document.getElementById("cell"+i+typename);
     setherocolorccc(img,cell,bitget(list,i),type);
 }
