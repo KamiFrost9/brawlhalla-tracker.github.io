@@ -2,8 +2,6 @@
 
 .cell2{
     height: 300px;
-    
-    
     display: inline-table;
     position: relative; 
     max-width: 450px;
@@ -12,7 +10,6 @@
     padding: 5px;
     margin: 10px 10px;
     background-color:#393550;
-    
 }
 
 .p2{

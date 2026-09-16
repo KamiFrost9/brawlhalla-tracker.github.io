@@ -79,3 +79,46 @@ space{
   align-items: center;
   justify-content: center;
 }
+
+select{
+  align-items: center;
+  margin: 5px 15px;
+  text-align-last:center;
+}
+
+.addselect {
+  padding: 5px;
+  margin: 10px 10px;
+  color: #8F9FBC;
+  text-align: center;
+}
+.addselect:hover {
+  color: white;
+}
+
+.cell2{
+    display: inline-table;
+    position: relative; 
+    max-width: 500px;
+    max-height: 1000px;
+    border-radius: 15px;
+    padding: 5px;
+    margin: 10px 10px;
+    background-color:#393550;
+}
+
+
+
+.requesttable{
+  background-color:#393550;
+  display: inline-table;
+  position: relative;
+  border-radius: 15px;
+  padding: 5px;
+  margin: 10px 10px;
+}
+
+.requesttabletext{
+  font-size: 40px;
+
+}
