@@ -1,8 +1,9 @@
 
-import {} from '../libs/sidebar.js';
-import {bitget} from '../libs/bitlist.js';
+import {} from '/libs/sidebar.js';
+import {bitget} from '/libs/bitlist.js';
 import { maxheros,getlegendname } from '/libs/heros.js';
-import { setherocolorccc } from '../libs/colors.js';
+import { setherocolorccc } from '/libs/colors.js';
+import { getCookielist} from '/libs/cookies.js';
 
 document.addEventListener ("DOMContentLoaded", handleDocumentLoad);
 
@@ -31,11 +32,15 @@ function load(){
         const select=document.getElementById(n);
         if(select!=null){ 
             let sellist=null;
-            for(let v in objdata)
-                if(sellist===null&&objdata[v][select.value]!=null)
-                    sellist=objdata[v][select.value];
-            if(sellist===null)
-                sellist=[];
+            if(select.value=="Own"){
+                sellist=getCookielist("legendsown");
+            }else{
+                for(let v in objdata)
+                    if(sellist===null&&objdata[v][select.value]!=null)
+                        sellist=objdata[v][select.value];
+                if(sellist===null)
+                    sellist=[];
+            }
             for(let n2=0;n2<list.length;n2++)
                 if(bitget(sellist,n2)){
                     list[n2]++;
