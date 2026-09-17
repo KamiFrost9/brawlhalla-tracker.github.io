@@ -4,6 +4,7 @@ import {bitget} from '/libs/bitlist.js';
 import { maxheros,getlegendname } from '/libs/heros.js';
 import { setherocolorccc } from '/libs/colors.js';
 import { getCookielist} from '/libs/cookies.js';
+import { colornames,maxcolor } from '/libs/colorsname.js';
 
 document.addEventListener ("DOMContentLoaded", handleDocumentLoad);
 
@@ -16,7 +17,11 @@ let quant=1;
 let next=0;
 let lastseach=null;
 let frames = makeframes();
+let tables = [];
+let tablesp = [];
+let tablest = [];
 const legendstables = document.getElementById("legends");
+
 function handleDocumentLoad() {
     const selectors = document.getElementById("selectors");
     addselector(selectors,next++);
@@ -52,22 +57,15 @@ function load(){
                 }
         }
     }
-    for(let n=0;n<=quant;n++){
-        const tab=document.getElementById("table"+n);
-        if(tab!=null)
-            tab.parentElement.remove();
-        maketable(n);
-    }
-    for(let n=1;n<list.length;n++)
-        document.getElementById("table"+(quant-list[n])).appendChild(frames[n]);
-    
-    for(let n=0;n<=lastseach;n++){
-        const elm=document.getElementById("table"+n);
-        if(elm!=null&&elm.childElementCount==0)
-            elm.parentElement.remove();
-        }
-    if(lastseach<quant)
-        lastseach=quant;
+    for(let n=tables.length;n<=quant+1;n++) maketable(n);
+    for(let n=1;n<list.length;n++) tables[(quant-list[n])].appendChild(frames[n]);
+    for(let n=0;n<tables.length;n++){
+        if(tablesp[n].isConnected)
+            tablesp[n].remove();
+        if(tables[n].childElementCount>0){
+            legendstables.appendChild(tablesp[n]);
+            tablest[n].innerHTML=(n==0)?("All attributes."):((n==quant)?("No matching attributes."):((n==1)?"1 missing attribute.":(n+" missing attributes.")));
+        }}
 }
 
 function maketable(i){
@@ -75,22 +73,17 @@ function maketable(i){
     let table = document.createElement('footer');
     let text = document.createElement('text');
     tableup.className="requesttable";
-    table.id="table"+i;
     text.className="requesttabletext";
-    text.innerHTML=(i==0)?("All attributes."):
-    ((i==quant)?("No matching attributes."):
-    ((i==1)?"1 missing attribute.":
-    (i+" missing attributes.")));
     tableup.appendChild(text);
     tableup.appendChild(table);
-    legendstables.appendChild(tableup);   
+    tables[i]=table;
+    tablesp[i]=tableup;
+    tablest[i]=text;
 }
 
 function makeframes(){
     let frames=[null];
-    for(let n=1;n<=maxheros;n++){
-        frames.push(makeframe(n));
-    }
+    for(let n=1;n<=maxheros;n++) frames.push(makeframe(n));
     return frames;
 }
 
@@ -133,32 +126,27 @@ function addselector(main,n){
 
 function addoptions(select){
     let optgroup = document.createElement('optgroup');
-        optgroup.label="Can use";
-        addoption(optgroup,"Own");
-        addoption(optgroup,"Weekly");
-        addoption(optgroup,"Own or Weekly");
-        select.appendChild(optgroup);
-
-    //addoption(optgroup,"own");
-    for(let v in objdata){
-        addoptgroup(select,v);
-    }
+    optgroup.label="Can use";
+    addoption(optgroup,"Own");
+    addoption(optgroup,"Weekly");
+    addoption(optgroup,"Own or Weekly");
+    select.appendChild(optgroup);
+    for(let v in objdata) addoptgroup(select,v);
 }
 
 function addoptgroup(select,optgroupname){
         let optgroup = document.createElement('optgroup');
         optgroup.label=optgroupname;
         optgroup.className="optiontext";
-        for(let v in objdata[optgroupname]){
+        for(let v in objdata[optgroupname])
             addoption(optgroup,v);
-        }
         select.appendChild(optgroup);
 }
 
 function addoption(select,optionname){
-       let option = document.createElement('option');
-        option.value=optionname;
-        option.innerHTML=optionname;
-        option.className="optiontext";
-        select.appendChild(option);
+    let option = document.createElement('option');
+    option.value=optionname;
+    option.innerHTML=optionname;
+    option.className="optiontext";
+    select.appendChild(option);
 }

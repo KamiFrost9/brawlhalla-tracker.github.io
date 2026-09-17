@@ -1,4 +1,24 @@
-export const maxcolor=64;
+
+
+export const colornames=
+    ["Classic","Blue","Yellow","Green","Brown","Orange","Purple","Cyan","Sunset","Gray","Pink","Red",
+    "Lovestruck","Heartfelt","Lucky Clover","Clover Patch","Verdant Bloom","Hibiscus",
+ 
+    "Charged OG","Raven's Honor","Bifrost","Art Deco","Blood Moon",
+
+    "Heatwave","Pool Party","Home Team","Home Team Reunion","Haunting","Ghoulish","Gala","Winter Holiday","Holly Jolly",
+    "Soul Fire","Synthwave","Frozen Forest","Coat of Lions","Starlight","Willow Leaves","Pact of Poison","Darkheart","Armageddon",
+    "Kira-kira","Ancient Curse","Neon Hanafuda","Dragonfire","Stained Glass",
+ 
+    "White","Black","Skyforged","Goldforged","Crystalforged",
+    "RGB","CMYK",
+    "Blacklight",
+    
+    "Community Colors","Community Colors v.2",
+    "Esports","Esports v.2","Esports v.3","Esports v.4","Esports v.5","Esports v.6","Esports v.7",
+    "Guild Colors"];
+    
+export const maxcolor=colornames.length+1;
 
 export function colorbytype(c){
     switch(c){
@@ -15,6 +35,7 @@ return OWNINGTYPE.forever;
 case "Lovestruck":case "Lucky Clover":case "Verdant Bloom":case "Heatwave":case "Home Team":case "Haunting":case "Gala":case "Winter Holiday":
 case "White":case "Black":
 case "Skyforged":case "Goldforged":case "Crystalforged":
+case "Guild Colors":
 return OWNINGTYPE.buy;
 case "Blacklight":
 
@@ -32,72 +53,3 @@ export const OWNINGTYPE= {
     buy: "buy",
     notforever:"notforever"
 };
-
-export function getcolorname(c){
-    switch(c){
-case 1: return "Classic";
-case 2: return "Blue";
-case 3: return "Yellow";
-case 4: return "Green";
-case 5: return "Brown";
-case 6: return "Orange";
-case 7: return "Purple";
-case 8: return "Cyan";
-case 9: return "Sunset";
-case 10: return "Gray";
-case 11: return "Pink";
-case 12: return "Red";
-case 13: return "Lovestruck";
-case 14: return "Heartfelt";
-case 15: return "Lucky Clover";
-case 16: return "Clover Patch";
-case 17: return "Verdant Bloom";
-case 18: return "Hibiscus";
-case 19: return "Charged OG";
-case 20: return "Raven's Honor";
-case 21: return "Bifrost";
-case 22: return "Art Deco";
-case 23: return "Blood Moon";
-case 24: return "Heatwave";
-case 25: return "Pool Party";
-case 26: return "Home Team";
-case 27: return "Home Team Reunion";
-case 28: return "Haunting";
-case 29: return "Ghoulish";
-case 30: return "Gala";
-case 31: return "Winter Holiday";
-case 32: return "Holly Jolly";
-case 33: return "Soul Fire";
-case 34: return "Synthwave";
-case 35: return "Frozen Forest";
-case 36: return "Coat of Lions";
-case 37: return "Starlight";
-case 38: return "Willow Leaves";
-case 39: return "Pact of Poison";
-case 40: return "Darkheart";
-case 41: return "Armageddon";
-case 42: return "Kira-kira";
-case 43: return "Ancient Curse";
-case 44: return "Neon Hanafuda";
-case 45: return "Dragonfire";
-case 46: return "Stained Glass";
-case 47: return "White";
-case 48: return "Black";
-case 49: return "Skyforged";
-case 50: return "Goldforged";
-case 51: return "Crystalforged";
-case 52: return "RGB";
-case 53: return "CMYK";
-case 54: return "Blacklight";
-case 55: return "Community Colors";
-case 56: return "Community Colors v.2";
-case 57: return "Esports";
-case 58: return "Esports v.2";
-case 59: return "Esports v.3";
-case 60: return "Esports v.4";
-case 61: return "Esports v.5";
-case 62: return "Esports v.6";
-case 63: return "Esports v.7";
-case 64: return "Guild Colors";
-    }
-}

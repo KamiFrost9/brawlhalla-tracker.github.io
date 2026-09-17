@@ -1,10 +1,10 @@
-import { getcolorname,maxcolor } from '/libs/colorsname.js';
+import { colornames,maxcolor } from '/libs/colorsname.js';
 import {} from '/libs/sidebar.js';
 import {setcolorcolor} from '/libs/colors.js';
 
 var table = document.getElementById("table");
-for (let i = 1; i <= maxcolor; i++) {
-const colorname= getcolorname(i);
+for (let i = 0; i < maxcolor-1; i++) {
+    const colorname=colornames[i];
     let cell = document.createElement('a');
     let img = document.createElement('div');
     let img2 = document.createElement('img');
