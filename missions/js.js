@@ -77,7 +77,10 @@ function maketable(i){
     tableup.className="requesttable";
     table.id="table"+i;
     text.className="requesttabletext";
-    text.innerHTML=(i==0)?("All attributes."):((i==1)?"1 missing attribute.":(i+" missing attributes."));
+    text.innerHTML=(i==0)?("All attributes."):
+    ((i==quant)?("No matching attributes."):
+    ((i==1)?"1 missing attribute.":
+    (i+" missing attributes.")));
     tableup.appendChild(text);
     tableup.appendChild(table);
     legendstables.appendChild(tableup);   
