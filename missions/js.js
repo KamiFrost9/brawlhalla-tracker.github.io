@@ -120,9 +120,11 @@ function addselector(main,n){
     let footer = document.createElement('footer');
     let select = document.createElement('select');
     let removebutton = document.createElement('text');
+    select.className="optiontext";
     select.id=n;
     addoptions(select);
     removebutton.innerHTML="X";
+    removebutton.className="optiontext";
     removebutton.addEventListener("click",()=>{footer.remove();quant--;});
     footer.appendChild(select);
     footer.appendChild(removebutton);
@@ -146,6 +148,7 @@ function addoptions(select){
 function addoptgroup(select,optgroupname){
         let optgroup = document.createElement('optgroup');
         optgroup.label=optgroupname;
+        optgroup.className="optiontext";
         for(let v in objdata[optgroupname]){
             addoption(optgroup,v);
         }
@@ -156,5 +159,6 @@ function addoption(select,optionname){
        let option = document.createElement('option');
         option.value=optionname;
         option.innerHTML=optionname;
+        option.className="optiontext";
         select.appendChild(option);
 }
