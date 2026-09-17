@@ -80,10 +80,10 @@ export function setcolorcolor(img,cell,name,color){
         else{setcolortype(img,cell,Colortype.notown);}}
 }
 
-export function setherocolor(img,cell,own,i){
-    setcolortype(img,cell,(own)?
+export function setherocolor(img,cell,own,i,all){
+    setcolortype(img,cell,(all)?(Colortype.defaultown):((own)?
    ((freelegend(i))?Colortype.specialown:Colortype.own):
-    ((freelegend(i))?Colortype.canusebutnotown:Colortype.notown));
+    ((freelegend(i))?Colortype.canusebutnotown:Colortype.notown)));
 }
 
 export function setherocolorccc(img,cell,own,type){

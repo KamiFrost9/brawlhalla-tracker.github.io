@@ -4,7 +4,7 @@ import { OWNINGTYPE } from '../../libs/colorsname.js';
 import {bitget,bitflip } from '../../libs/bitlist.js';
 import { addCookie,getCookielist} from '../../libs/cookies.js';
 
-var list={};
+var list=getCookielist("legendsown");
 document.addEventListener ("DOMContentLoaded", handleDocumentLoad);
 
 const objdata={
@@ -168,9 +168,8 @@ function makeframe(typename,table,i,gif){
     cell.appendChild(space);
     cell.appendChild(name);  
     table.appendChild(cell);
-    if(type!=OWNINGTYPE.always){
+    if(type!=OWNINGTYPE.always)
         cell.addEventListener('click',()=>movetrail(typename,i,type));
-    }
     setback(i,type,typename);
 }
 
