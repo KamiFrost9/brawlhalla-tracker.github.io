@@ -1,5 +1,5 @@
 import { freelegend } from '../weekchanged.js';
-import {getmanythiscolor,forevercolor} from '../libs/nodes.js';
+import {getmanythiscolor,getmanythisstance,forevercolor} from '../libs/nodes.js';
 import {maxheros} from '../libs/heros.js';
 import {colorbytype,OWNINGTYPE} from '../libs/colorsname.js'
 
@@ -66,12 +66,12 @@ switch(type){
     break;
 }}
 
-export function setcolorcolor(img,cell,name){
+export function setcolorcolor(img,cell,name,color){
     const type=colorbytype(name);
     if(type==OWNINGTYPE.always || (type==OWNINGTYPE.forever && forevercolor(name))){
         setcolortype(img,cell,Colortype.defaultown);
     }else{
-        const per=getmanythiscolor(name)/maxheros;
+        const per=(color?getmanythiscolor(name):getmanythisstance(name))/maxheros;
         if(per>0.95){setcolortype(img,cell,Colortype.own);}
         else if(per>0.7){setcolortype(img,cell,Colortype.ownlevel);}
         else if(per>0.5){setcolortype(img,cell,Colortype.specialown);}

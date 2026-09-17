@@ -21,8 +21,16 @@ export function getmanythiscolor(c) {
   return bitCountList(getcolor(c));
 }
 
+export function getmanythisstance(s) {
+  return bitCountList(getstance(s));
+}
+
 export function forevercolor(c) {
   return bitget(getcolor(c),0);
+}
+
+export function getstance(s) {
+  return getCookielist("stances",s);
 }
 
 export function getcolor(c) {

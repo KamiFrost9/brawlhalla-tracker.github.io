@@ -21,13 +21,15 @@ function getparameter(urlParams) {
   return colorname;
 }
 
-
-
 function handleDocumentLoad() {
     const urlParams = new URLSearchParams(window.location.search);
     colorname=getparameter(urlParams);
-    var table = document.getElementById("table");
     const type=colorbytype(colorname);
+    if(type==null){
+        urlParams.set('name', "Classic");
+        window.location.search = urlParams.toString();
+    }
+    var table = document.getElementById("table");
     colorlist=getcolor(colorname);
     if(type==OWNINGTYPE.always || type==OWNINGTYPE.forever){
         makeframe(table,0,type);

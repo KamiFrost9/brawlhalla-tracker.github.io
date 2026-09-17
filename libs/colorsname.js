@@ -18,13 +18,15 @@ export const colornames=
     "Esports","Esports v.2","Esports v.3","Esports v.4","Esports v.5","Esports v.6","Esports v.7",
     "Guild Colors"];
     
+export const stances=["Base Stance","Strength","Dexterity","Defense","Speed","Super Strength","Super Dexterity","Super Defense","Super Speed","Challenge"];
 export const maxcolor=colornames.length+1;
 
 export function colorbytype(c){
     switch(c){
-case "Classic":
+case "Classic":case "Base Stance":
 return OWNINGTYPE.always;
 case "Blue":case "Yellow":case "Green":case "Brown":case "Orange":case "Purple":case "Cyan":case "Sunset":case "Gray":case "Pink":case "Red":
+case "Strength":case "Dexterity":case "Defense":case "Speed":case "Super Strength":case "Super Dexterity":case "Super Defense":case "Super Speed":case "Challenge":
 return OWNINGTYPE.level;
 case "Heartfelt":case "Clover Patch":case "Hibiscus":case "Charged OG":case "Raven's Honor":case "Bifrost":
 case "RGB":case "CMYK":case "Community Colors":case "Esports":case "Esports v.2":case "Esports v.3":

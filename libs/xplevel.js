@@ -26,30 +26,26 @@ const stances={
     "Super Dexterity":[0,15,17,15,17,11,13,15,15,13,13,17,11,13,11,11,17,13,15,13,17,11,15,17,13,17,13,15,11,15,13,11,17,15,13,11,11,13,11,17,17,15,13,15,13,11,11,11,17,11,13,15,11,17,15,17,17,15,11,13,17,11,13,11,11,15,13,15,11,13],
     "Super Defense":[0,13,11,17,13,13,17,11,17,15,11,11,17,15,15,15,13,17,11,15,11,17,13,11,17,15,15,17,15,11,17,15,13,11,11,17,13,15,17,13,13,17,17,11,11,17,15,15,15,17,11,11,17,15,11,13,11,13,15,11,15,17,11,17,15,13,11,17,15,17],
     "Super Speed":[0,11,13,13,15,15,11,17,11,11,17,15,15,17,13,17,15,11,17,11,15,13,17,13,11,13,17,13,13,13,15,17,15,17,15,15,15,11,15,15,15,13,15,13,15,13,13,17,13,13,17,17,15,13,17,11,15,11,17,17,13,13,17,15,13,17,17,13,13,11],
-    "challenge":40};
+    "Challenge":40};
 const title=50;
 const gilding=100;
 
 export function getlevel(xp){
-    if(xp==0){return 0;}
+    if(xp==0)return 0;
     let n=0;
-    while(xp>0&&n<xplevel.length){
+    while(xp>0&&n<xplevel.length)
         xp-=xplevel[n++];
-    }
     return n;
 }
 
 export function updatefromlevelall(){
     let list=getCookielist("legendsxp");
-
     for(let n=1;n<maxheros;n++){   
         let xp=list[n];
-        if(xp==null){xp=0;} 
+        if(xp==null)xp=0;
         const level=getlevel(xp);
-        for(let v in stances){
-            editstance(v,n,level);}
-        for(let v in colors){
-            editcolor(v,n,level);}
+        for(let v in stances) editstance(v,n,level);
+        for(let v in colors) editcolor(v,n,level);
     }
 }
 
@@ -57,14 +53,10 @@ export function updatefromlevelall(){
 export function updatefromlevel(legend){
     let list=getCookielist("legendsxp");
     let xp=list[legend];
-    if(xp==null){xp=0;}
+    if(xp==null)xp=0;
     const level=getlevel(xp);
-    for(let v in stances){
-        editstance(v,legend,level);
-    }
-    for(let v in colors){
-        editcolor(v,legend,level);
-    }
+    for(let v in stances) editstance(v,legend,level);
+    for(let v in colors) editcolor(v,legend,level);
 }
 
 
@@ -77,8 +69,7 @@ function editcolor(color,id,level){
 
 function editstance(stance,id,level){
     let list=getCookielist("stances",stance);
-    if(stance=="Challenge"){
-        list=bitset(list,id,level>=stances[stance]);}
-    else{list=bitset(list,id,level>=stances[stance][id]);}
+    if(stance=="Challenge") list=bitset(list,id,level>=stances[stance]);
+    else list=bitset(list,id,level>=stances[stance][id]);
     addCookie(list,stance,"stances");
 }
