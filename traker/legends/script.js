@@ -46,7 +46,7 @@ function click(i){
     list=bitflip(list,i);
     addCookie(list,null,"legendsown");
     if(i==0)
-        for(let n=0;n<maxheros;n++)
+        for(let n=0;n<maxheros+1;n++)
             setherocolor(imgs[n],cells[n],bitget(list,n),n,bitget(list,0));
     else
         setherocolor(imgs[i],cells[i],bitget(list,i),i,bitget(list,0));
