@@ -49,12 +49,17 @@ function load(){
                 if(sellist===null)
                     sellist=[];
             }
-            for(let n2=0;n2<list.length;n2++)
-                if(bitget(sellist,n2)){
+            if(bitget(sellist,0)){
+                for(let n2=0;n2<list.length;n2++)
                     list[n2]++;
-                    if(hier<list[n2])
-                        hier=list[n2];
-                }
+                hier++;
+            }else
+                for(let n2=0;n2<list.length;n2++)
+                    if(bitget(sellist,n2)){
+                        list[n2]++;
+                        if(hier<list[n2])
+                            hier=list[n2];
+                    }
         }
     }
     for(let n=tables.length;n<=quant+1;n++) maketable(n);
