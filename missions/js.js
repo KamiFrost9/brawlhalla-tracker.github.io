@@ -4,7 +4,7 @@ import {bitget} from '/libs/bitlist.js';
 import { maxheros,getlegendname } from '/libs/heros.js';
 import { setherocolorccc } from '/libs/colors.js';
 import { getCookielist} from '/libs/cookies.js';
-import { colornames,maxcolor } from '/libs/colorsname.js';
+import { colornames,stances } from '/libs/colorsname.js';
 
 document.addEventListener ("DOMContentLoaded", handleDocumentLoad);
 
@@ -38,17 +38,20 @@ function load(){
     let hier=0;
     for(let n=0;n<next;n++){
         const select=document.getElementById(n);
+        const selectvalue=JSON.parse(select.value);
         if(select!=null){ 
             let sellist=null;
-            if(select.value=="Own"){
-                sellist=getCookielist("legendsown");
-            }else{
-                for(let v in objdata)
-                    if(sellist===null&&objdata[v][select.value]!=null)
-                        sellist=objdata[v][select.value];
-                if(sellist===null)
-                    sellist=[];
-            }
+            if(selectvalue[0]=="Colors")
+                sellist=getCookielist("colors")[selectvalue[1]];
+            else if(selectvalue[0]=="Stances")
+                sellist=getCookielist("stances")[selectvalue[1]];
+            else if(selectvalue[0]=="Can use"){
+                if(selectvalue[1]=="Own")
+                    sellist=getCookielist("legendsown");
+            }else
+                sellist=objdata[selectvalue[0]][selectvalue[1]];
+            if(sellist==null)
+                sellist=[];
             if(bitget(sellist,0)){
                 for(let n2=0;n2<list.length;n2++)
                     list[n2]++;
@@ -130,27 +133,33 @@ function addselector(main,n){
 }
 
 function addoptions(select){
-    let optgroup = document.createElement('optgroup');
-    optgroup.label="Can use";
-    addoption(optgroup,"Own");
-    addoption(optgroup,"Weekly");
-    addoption(optgroup,"Own or Weekly");
-    select.appendChild(optgroup);
-    for(let v in objdata) addoptgroup(select,v);
+    addoptgrouplist(select,"Can use",["Own","Weekly","Own or Weekly"]);
+    for(let v in objdata) addoptgroup(select,v,objdata);
+    addoptgrouplist(select,"Stances",stances);
+    addoptgrouplist(select,"Colors",colornames);
 }
 
-function addoptgroup(select,optgroupname){
+function addoptgroup(select,optgroupname,objdata){
         let optgroup = document.createElement('optgroup');
         optgroup.label=optgroupname;
         optgroup.className="optiontext";
         for(let v in objdata[optgroupname])
-            addoption(optgroup,v);
+            addoption(optgroup,v,optgroupname);
         select.appendChild(optgroup);
 }
 
-function addoption(select,optionname){
+function addoptgrouplist(select,optgroupname,list){
+        let optgroup = document.createElement('optgroup');
+        optgroup.label=optgroupname;
+        optgroup.className="optiontext";
+        for(let n=0;n<list.length;n++)
+            addoption(optgroup,list[n],optgroupname);
+        select.appendChild(optgroup);
+}
+
+function addoption(select,optionname,optgroupname){
     let option = document.createElement('option');
-    option.value=optionname;
+    option.value=JSON.stringify([optgroupname,optionname]);
     option.innerHTML=optionname;
     option.className="optiontext";
     select.appendChild(option);
