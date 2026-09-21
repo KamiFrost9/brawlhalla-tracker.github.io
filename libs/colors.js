@@ -87,13 +87,15 @@ export function setherocolor(img,cell,own,i,all){
 }
 
 export function setherocolorccc(img,cell,own,type){
-    if(type==OWNINGTYPE.always){
+    if(type==OWNINGTYPE.always)
         setcolortype(img,cell,Colortype.defaultown);
-    }else if(type==OWNINGTYPE.forever&&own=="all"){
+    else if(type==OWNINGTYPE.forever&&own=="all")
         setcolortype(img,cell,Colortype.defaultown);
-    }else if(type==OWNINGTYPE.level){
+    else if(type==OWNINGTYPE.level)
         setcolortype(img,cell,(own)?Colortype.ownlevel:Colortype.notownlevel);
-    }else{
+    else if(type==OWNINGTYPE.notown)
+        setcolortype(img,cell,Colortype.canusebutnotown);
+    else
        setcolortype(img,cell,(own)?Colortype.own:Colortype.notown);
-    }
+    
 }

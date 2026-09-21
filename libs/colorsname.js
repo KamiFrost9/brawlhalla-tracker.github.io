@@ -59,5 +59,6 @@ export const OWNINGTYPE= {
     level: "level",
     forever: "forever",
     buy: "buy",
-    notforever:"notforever"
+    notforever:"notforever",
+    notown:"notown"
 };
