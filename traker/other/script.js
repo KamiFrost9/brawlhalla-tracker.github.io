@@ -442,7 +442,7 @@ const objdata={
 "Temperance",
 "Archangel",
 "Mammoth Spellwitch Fan",
-    ],
+],
     "podiums":[
 "Default Podium",
 "Heatwave 2017",
@@ -550,10 +550,34 @@ const objdata={
 "Stairway to Elysium 2",
 "Stairway to Elysium 3",
 "Haunted Manor 2026",
-    ],
+],
     "companions":[],
     "avatars":[],
-    "frames":[],
+    "frames":[
+"Default Frame",
+"Gold Frame",
+"Platinum Frame",
+"Diamond Frame",
+"Valhallan Frame",
+"Demon Gate",
+"Futurewave",
+"Gate to Valhalla",
+"Stained Legacy",
+"XVI. The Tower",
+"Fae's Passage",
+"Tavern Entrance",
+"Dead End",
+"Merciful Life",
+"Magical Gateway",
+"Ixanocala's Maw",
+"Jikoku Nights",
+"Dragonportal",
+"Portal of Darkness",
+"RGB Colorway",
+"Luminous Daybreak",
+"Hardlight Matrix",
+"Divine Gate"
+],
     "emojis":[]
 }
 
@@ -614,6 +638,7 @@ function gettype(typename){
         case "Woohoo!":
         case "VALKRI Mk 1":
         case "Default Podium":
+        case "Default Frame":
         return OWNINGTYPE.always;
 
         case "Slow Clap":
