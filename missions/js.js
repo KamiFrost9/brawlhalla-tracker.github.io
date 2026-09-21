@@ -42,9 +42,9 @@ function load(){
         if(select!=null){ 
             let sellist=null;
             if(selectvalue[0]=="Colors")
-                sellist=getCookielist("colors")[selectvalue[1]];
+                sellist=(selectvalue[1]=="Classic")?[1]:getCookielist("colors")[selectvalue[1]];
             else if(selectvalue[0]=="Stances")
-                sellist=getCookielist("stances")[selectvalue[1]];
+                sellist=(selectvalue[1]=="Base Stance")?[1]:getCookielist("stances")[selectvalue[1]];
             else if(selectvalue[0]=="Can use"){
                 if(selectvalue[1]=="Own")
                     sellist=getCookielist("legendsown");
@@ -68,8 +68,7 @@ function load(){
     for(let n=tables.length;n<=quant+1;n++) maketable(n);
     for(let n=1;n<list.length;n++) tables[(quant-list[n])].appendChild(frames[n]);
     for(let n=0;n<tables.length;n++){
-        if(tablesp[n].isConnected)
-            tablesp[n].remove();
+        if(tablesp[n].isConnected) tablesp[n].remove();
         if(tables[n].childElementCount>0){
             legendstables.appendChild(tablesp[n]);
             tablest[n].innerHTML=(n==0)?("All attributes."):((n==quant)?("No matching attributes."):((n==1)?"1 missing attribute.":(n+" missing attributes.")));
