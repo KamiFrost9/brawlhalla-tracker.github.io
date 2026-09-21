@@ -1,8 +1,9 @@
 import { maxheros,getlegendname } from '/libs/heros.js';
-import { setcolor,getcolor } from '/libs/nodes.js';
+import { setcolor } from '/libs/nodes.js';
+import { getCookielist } from '/libs/cookies.js';
 import {} from '/libs/sidebar.js';
 import { setherocolorccc } from '/libs/colors.js';
-import {colorbytype,OWNINGTYPE} from '/libs/colorsname.js';
+import {colorbytype,OWNINGTYPE,itemtype} from '/libs/colorsname.js';
 import {bitget,bitflip } from '/libs/bitlist.js';
 import {updatefromlevelall } from '/libs/xplevel.js';
 
@@ -29,14 +30,26 @@ function handleDocumentLoad() {
         urlParams.set('name', "Classic");
         window.location.search = urlParams.toString();
     }
-    var table = document.getElementById("table");
-    colorlist=getcolor(colorname);
-    if(type==OWNINGTYPE.always || type==OWNINGTYPE.forever){
+    const itemtypes=itemtype(colorname);
+    const main=document.getElementById("main");
+
+    const title = document.createElement('footer');
+    const h = document.createElement('h1');
+    const img = document.createElement('img');
+    const img2 = document.createElement('img');
+    img.src="/assets/icons/"+itemtypes+"_icon.png";img2.src=img.src;
+    img.className="img5";img2.className="img5";title.className="footer2";
+    h.innerHTML=((itemtypes=="colors")?"COLOR":"STANCE")+": "+colorname;
+    title.appendChild(img);title.appendChild(h);title.appendChild(img2);
+    main.appendChild(title);
+    
+    var table = document.createElement('footer');
+    main.appendChild(table);
+    colorlist=getCookielist(itemtypes,colorname);
+    if(type==OWNINGTYPE.always || type==OWNINGTYPE.forever)
         makeframe(table,0,type);
-    }
-    for (let i = 1; i <= maxheros; i++) {
+    for (let i = 1; i <= maxheros; i++) 
         makeframe(table,i,type);
-    }
 }
 function makeframe(table,i,type){
     let cell = document.createElement('a');

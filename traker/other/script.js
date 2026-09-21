@@ -118,9 +118,8 @@ const objdata={
 
 function handleDocumentLoad() {
     var table = document.getElementById("table");
-    for(let v in objdata){
+    for(let v in objdata)
         maketable(v,table);
-    }
 }
 
 function maketable(v,defaulttable){
@@ -129,22 +128,15 @@ function maketable(v,defaulttable){
         let title = document.createElement('h1');
         let img = document.createElement('img');
         let img2 = document.createElement('img');
-        img.src="/assets/icons/"+v+"_icon.png";
-        img.className="img5";
-        img2.src="/assets/icons/"+v+"_icon.png";
-        img2.className="img5";
-        footer.className="footer2";
-        footer.appendChild(img);
-        footer.appendChild(title);
-        footer.appendChild(img2);
-        defaulttable.appendChild(footer);
-        defaulttable.appendChild(table);
+        img.src="/assets/icons/"+v+"_icon.png";img2.src=img.src;
+        img.className="img5";img2.className="img5";footer.className="footer2";
+        footer.appendChild(img);footer.appendChild(title);footer.appendChild(img2);
+        defaulttable.appendChild(footer);defaulttable.appendChild(table);
         title.innerHTML=v;
         list[v]=getCookielist(v);
         const gif=(v=="ko effects"||v=="trails");
-        for (let i = 0; i < objdata[v].length; i++) {
+        for (let i = 0; i < objdata[v].length; i++)
             makeframe(v,table,i,gif);
-        } 
 }
 
 function makeframe(typename,table,i,gif){
@@ -162,7 +154,7 @@ function makeframe(typename,table,i,gif){
     cell.className="cell";
     let name = document.createElement('text');
     name.innerHTML = tname;
-    const type=gettype(i,typename);
+    const type=gettype(typename);
     img.appendChild(img2);
     cell.appendChild(img);
     cell.appendChild(space);
@@ -173,10 +165,17 @@ function makeframe(typename,table,i,gif){
     setback(i,type,typename);
 }
 
-function gettype(i,typename){
- return (i==0)?OWNINGTYPE.always:OWNINGTYPE.buy;
-}
+function gettype(typename){
+    switch(typename){
+        case "Brawler's Insignia":
+        case "Default":
+        case "Smoke N' Stars":
 
+
+        return OWNINGTYPE.always;
+        default: return OWNINGTYPE.buy;
+    }
+}
 
 function movetrail(typename,i,type){
     list[typename]=bitflip(list[typename],i);
