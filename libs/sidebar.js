@@ -6,7 +6,6 @@ div.className="sidenav";
 div.appendChild(home());
 div.appendChild(traker("legends"));
 div.appendChild(traker("colors"));
-div.appendChild(traker("weapons"));
 div.appendChild(traker("titles"));
 div.appendChild(traker("other"));
 div.appendChild(other("missions"));

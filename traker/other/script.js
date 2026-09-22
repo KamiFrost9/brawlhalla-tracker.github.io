@@ -6,8 +6,7 @@ import { addCookie,getCookielist} from '../../libs/cookies.js';
 
 document.addEventListener ("DOMContentLoaded", handleDocumentLoad);
 
-const objdata={
-    "All":[],
+const objdata={"All":[],
     "insignias":[
 "Brawler's Insignia",
 "Founder's Insignia",
@@ -589,29 +588,657 @@ const objdata={
 "Hardlight Matrix",
 "Divine Gate"
 ],
-    "emojis":[]
+    "emojis":{"All":[],
+"1More":["1More",
+"1More Ashen Warmonger",
+"1More Brawl Dad",
+"1More Chel",
+"1More Dr. Wily",
+"1More Erwin",
+"1More Gallowglass",
+"1More Goldforged",
+"1More Guild",
+"1More King of Darkness",
+"1More Punkin Spice",
+"1More Puss in Boots",
+"1More Santa",
+"1More Secret Admirer",
+"1More Skyforged",
+"1More Void Zenith",
+"1More Brawldog"
+],
+"BRB":["BRB",
+"BRB Bewitching",
+"BRB Brynn",
+"BRB Daylight Star ☆ Magi",
+"BRB Future Wave",
+"BRB Goldforged",
+"BRB Guild",
+"BRB Honeybee",
+"BRB Jörmungandr",
+"BRB Mando & Grogu",
+"BRB Master Of Night",
+"BRB Mega Man & Rush",
+"BRB Metadev",
+"BRB Naoe",
+"BRB Outhouse",
+"BRB Prime",
+"BRB Scuba",
+"BRB Skyforged",
+"BRB SpongeBob",
+"BRB Thea",
+"BRB Warthog",
+"BRB X-wing"
+],
+"Cry":["Cry",
+"Cry Caspian",
+"Cry Deep Sea",
+"Cry Goldforged",
+"Cry Guild",
+"Cry Haute Couture",
+"Cry Headmaster",
+"Cry Millennium Dragon",
+"Cry Reindeer Games",
+"Cry Skyforged",
+"Cry Snowdrift",
+"Cry The Covetous",
+"Cry Ulgrim",
+"Cry Corpse Bride"
+],
+"Facepalm":["Facepalm",
+"Facepalm Brynn",
+"Facepalm Ember",
+"Facepalm Goldforged",
+"Facepalm Guild",
+"Facepalm Honor Bound",
+"Facepalm Kern",
+"Facepalm Lady Vera",
+"Facepalm Metadev",
+"Facepalm Obi-Wan",
+"Facepalm Patrick",
+"Facepalm Riptide",
+"Facepalm Rising Dragon",
+"Facepalm Shrek",
+"Facepalm Skyforged",
+"Facepalm Werebat"
+],
+"GG":["GG",
+"GG Ahsoka",
+"GG Corrupted Blood",
+"GG Fangwild's Heart",
+"GG Fenrir",
+"GG Goldforged",
+"GG Guild",
+"GG Iroh",
+"GG Jiro",
+"GG Levi",
+"GG Master Chief",
+"GG Metadev",
+"GG Owl Bard",
+"GG Pinocchio",
+"GG Ritzy",
+"GG Sengoku Rappa",
+"GG Skyforged",
+"GG SpongeBob",
+"GG Till Dawn"
+],
+"Heart":["Heart",
+"Heart Ascendant",
+"Heart Cheer Captain",
+"Heart Date Night",
+"Heart Demonkin",
+"Heart Dragon",
+"Heart Festive Yeti",
+"Heart Goldforged",
+"Heart Guild",
+"Heart KO-rpse Candle",
+"Heart Metadev",
+"Heart Modern Monomi",
+"Heart Nix",
+"Heart Relentless Pest",
+"Heart Rush",
+"Heart Sea Krait",
+"Heart Skyforged",
+"Heart SpongeBob",
+"Heart Yumiko"
+],
+"Laugh":["Laugh",
+"Laugh Barbara",
+"Laugh Equinox",
+"Laugh Gardener",
+"Laugh Goldforged",
+"Laugh Gothic Chic",
+"Laugh Guild",
+"Laugh High Frequency",
+"Laugh Holly Jolly",
+"Laugh Horseman",
+"Laugh Indomitable Daylight",
+"Laugh Infernal Warlock",
+"Laugh Jabba the Hutt",
+"Laugh Munin",
+"Laugh Nix Nervous",
+"Laugh Obake",
+"Laugh Palpatine",
+"Laugh Skyforged",
+"Laugh Termidex",
+"Laugh Water Wars",
+"Laugh Professor"
+],
+"LookinGood":["LookinGood",
+"LookinGood Ascended",
+"LookinGood Beachside",
+"LookinGood Event Horizon",
+"LookinGood Fait",
+"LookinGood Famished Beast",
+"LookinGood Globox",
+"LookinGood Goldforged",
+"LookinGood Guild",
+"LookinGood Kay & Nix",
+"LookinGood Octavius",
+"LookinGood Roland",
+"LookinGood Skyforged",
+"LookinGood SpongeBob",
+"LookinGood Swanky",
+"LookinGood Three Blind Mice",
+"LookinGood Rocker",
+"LookinGood Reanimated"
+],
+"Rage":["Rage",
+"Rage Akuma Shinobi Rage",
+"Rage Azula",
+"Rage Beastmaster",
+"Rage Brute",
+"Rage Chewbacca",
+"Rage Cockatoo",
+"Rage Darth Maul",
+"Rage Diabolical Doll",
+"Rage Fell Empress",
+"Rage Goldforged",
+"Rage Guild",
+"Rage Honeybee",
+"Rage Librarian",
+"Rage Miracle Magi ☆ Starlit",
+"Rage Petra",
+"Rage Retro Reaper",
+"Rage Skyforged",
+"Rage Terror-Watt"
+],
+"RIP":["RIP",
+"RIP Akuma no Kogo",
+"RIP Aurora",
+"RIP Caelestis",
+"RIP Deathly Presence",
+"RIP Goldforged",
+"RIP Greedo",
+"RIP Grunt",
+"RIP Guild",
+"RIP Interloper",
+"RIP Metadev",
+"RIP Nix",
+"RIP Rayman",
+"RIP Shinobi no Mono",
+"RIP Skyforged",
+"RIP Warborn"
+],
+"Shrug":["Shrug",
+"Shrug Asuri",
+"Shrug Detention",
+"Shrug Dullahan",
+"Shrug Goldforged",
+"Shrug Guild",
+"Shrug Han Solo",
+"Shrug High Priestess",
+"Shrug Hwarang",
+"Shrug Netherworld",
+"Shrug Skyforged",
+"Shrug Sokka",
+"Shrug Street Sovereign",
+"Shrug Twilight Dragon",
+"Shrug Vraxxy Jones",
+"Shrug Xiaoyu"
+],
+"Smart":["Smart",
+"Smart Cybernetic Beat",
+"Smart Deathcap",
+"Smart Dragon Hunter",
+"Smart Elvenhollow",
+"Smart Future Nokizaru",
+"Smart Goldforged",
+"Smart Guild",
+"Smart Kazuya",
+"Smart Krampus",
+"Smart Luminous Paladin",
+"Smart Mordex",
+"Smart Shadow Dragon",
+"Smart Skyforged",
+"Smart Teatime",
+"Smart The Monster"
+],
+"Sweat":["Sweat",
+"Sweat C-3PO",
+"Sweat Caspian",
+"Sweat Dog Days",
+"Sweat Fallen Prince",
+"Sweat Goldforged",
+"Sweat Guild",
+"Sweat Kelpie",
+"Sweat Koji",
+"Sweat Leonidas",
+"Sweat Red Rose",
+"Sweat Sasha",
+"Sweat Skyforged",
+"Sweat Snowman",
+"Sweat Soulbound",
+"Sweat SpongeBob",
+"Sweat Werewolf"
+],
+"Think":["Think",
+"Think Anakin",
+"Think Astral Core",
+"Think Crimson Oni",
+"Think Druid Mage",
+"Think Elvenhollow",
+"Think First Day",
+"Think Goldforged",
+"Think Guild",
+"Think Metadev",
+"Think Mirage",
+"Think MonoKyle",
+"Think Neostreet",
+"Think Patrick",
+"Think Red Romance",
+"Think Santa",
+"Think Skyforged",
+"Think Vivi",
+"Cth’ink"
+],
+"ThumbsDown":["ThumbsDown",
+"ThumbsDown Colossal Titan",
+"ThumbsDown Darth Vader",
+"ThumbsDown Demon Bride",
+"ThumbsDown Diamond Jack",
+"ThumbsDown Diana",
+"ThumbsDown Elvenhollow",
+"ThumbsDown Goldforged",
+"ThumbsDown Guild",
+"ThumbsDown Heihachi",
+"ThumbsDown Lord Farquaad",
+"ThumbsDown Merrow",
+"ThumbsDown Metadev",
+"ThumbsDown Skyforged",
+"ThumbsDown Usurper",
+"ThumbsDown Vanir Guardian",
+"ThumbsDown Zariel"
+],
+"ThumbsUp":["ThumbsUp",
+"ThumbsUp Battle Droid",
+"ThumbsUp Caster Kor",
+"ThumbsUp Cu Sidhe",
+"ThumbsUp Dog Days",
+"ThumbsUp Goldforged",
+"ThumbsUp Guild",
+"ThumbsUp Jaeyun",
+"ThumbsUp King",
+"ThumbsUp Master Blacksmith",
+"ThumbsUp Mega Man",
+"ThumbsUp Metadev",
+"ThumbsUp Puella Papilio",
+"ThumbsUp Ray of the Dead",
+"ThumbsUp Skyforged",
+"ThumbsUp Star Commander",
+"ThumbsUp Yasuke"
+],
+"Wait":["Wait",
+"Wait Archfiend",
+"Wait Ascended",
+"Wait Cozy Sweater",
+"Wait Date Night",
+"Wait Fiona",
+"Wait Goldforged",
+"Wait Greased Lightning",
+"Wait Green Thumb",
+"Wait Guild",
+"Wait Immortal",
+"Wait Maitre d'",
+"Wait Mecha Knight",
+"Wait Octavius",
+"Wait Skyforged",
+"Wait The Betrayer",
+"Wait Val"
+],
+"Wave":["Wave",
+"Wave Cortana",
+"Wave Goldforged",
+"Wave Grogu",
+"Wave Guild",
+"Wave Katara",
+"Wave Kuma",
+"Wave Love Bug",
+"Wave Metadev",
+"Wave Obi-Wan",
+"Wave Peacock",
+"Wave Rayman",
+"Wave Roll",
+"Wave Royal Warrior",
+"Wave Seven",
+"Wave Skyforged",
+"Wave Swim Team"
+],
+"Wow":["Wow",
+"Wow Caster Thor",
+"Wow Ehzot",
+"Wow Ewok",
+"Wow Fleeting Magi ☆ Starlit",
+"Wow Goldforged",
+"Wow Guild",
+"Wow Hange",
+"Wow Imugi",
+"Wow Live Action",
+"Wow Metadev",
+"Wow Patrick",
+"Wow Skyforged",
+"Wow The Honorable",
+"Wow The Seeker",
+"Wow Xull",
+"Wow Kindergarten"
+],
+"WP":["WP",
+"WP 501st Clone Trooper",
+"WP Arbiter",
+"WP Armin",
+"WP Cho-Kor-late",
+"WP Elder Wild",
+"WP Gentleman",
+"WP Goldforged",
+"WP Guild",
+"WP Hattori",
+"WP Modular Rift",
+"WP Proto Man",
+"WP Skyforged",
+"WP Squidward",
+"WP Suki",
+"WP Sylvan Cleric",
+"WP Tuxedo Bandit"
+]},
+"weapons":
+{
+    "All":[],
+    "sword":[],
+    "hammer":[],
+    "rocket lance":[],
+    "blasters":[
+"A Shot at Love",
+"Ace of Spades",
+"All Seeing Blasters",
+"Aqua Blasters",
+"Arts and Crafts",
+"Asgardian Blasters",
+"ASM Blasters",
+"Asp and Adder",
+"Aztlán Blasters",
+"Bahian Blasters",
+"Barnacle Blasters",
+"Beautiful & Deadly",
+"Big Dog Blasters",
+"Birdshot",
+"Blasters of Mercy",
+"Blazing Deringers",
+"Blazing Fire",
+"Bolt Blasters",
+"Boom Booms",
+"Bowcaster & E-11 Blaster",
+"Brimstone Blasters",
+"Bubonic Blasters",
+"Budding Blasters",
+"Bullet Hail of the King",
+"Candy Caliber",
+"Cannonades",
+"Catchand Release",
+"Charmed, I'm Sure",
+"Chicago Typewriters",
+"Close Quarters",
+"Commander and Chief",
+"Crystalforged Blasters",
+"Cyberlink Blasters",
+"Cyber Myk Pistols",
+"Dark Conjurers",
+"Dark Elf Blasters",
+"Darkheart Blasters",
+"Darkshooters",
+"Death Throes",
+"Desequencers",
+"Desert Island Blasters",
+"Dessert Eagles",
+"Destabilizers",
+"Devil's Sight",
+"Disassemblers",
+"Disparo Sonoro",
+"DL-44 Pistol & E-11 Blaster",
+"Double Crossers",
+"Double Dragons",
+"Dragoon Flintlocks",
+"Drakenfire",
+"Dual Pistols",
+"Dueling Pistols",
+"Duty & Sacrifice",
+"Dwarven-Forged Blasters",
+"Ebon Blasters",
+"Eclipsers",
+"Electrode Guns",
+"Emperor's Own Blasters",
+"Equalizer",
+"Exception Handlers",
+"Exquisite Cannons",
+"Fairy Fire",
+"Fiendish Howl",
+"Fire & Brimstone",
+"Firewalls",
+"Five-Sevens",
+"Flight Risks",
+"Flint-Lockers",
+"Flintlock Claws",
+"Forbidden Lamps",
+"Galopante Blasts",
+"Gemini's Wrath",
+"Ghostand Goblin",
+"Glimpse of Death",
+"Glitz & Glam",
+//"Golden Gears",
+"Goldforged Blasters",
+"Grisly Burrs",
+"Guild Blasters",
+"Guileless Hellfire Blasters",
+"Hand Cannons",
+"Hardlight Blasters",
+"Hellhounds",
+"Highwayman's Flintlocks",
+"Hraesvelgr's Eyes",
+"I B-94 Pistol & E-11 Blaster",
+"Ice' Em",
+"Jubilation Blasters",
+"Juicy Carnage Shotguns",
+"Jötunn Armaments",
+"Ketchup & Mustard",
+"Laser Blazers",
+"Las Viudas",
+"Lawbreakers",
+"Lost Technology",
+"Los Volcanes",
+"Loves Me",
+"M7 SMG & Plasma Rifle",
+"Magnum Pistols",
+"Maxilli-Blasts",
+"Mega Buster",
+"Mercy Killers",
+"Moskitoes",
+"Mother of Pearl Blasters",
+"MP7s",
+"Murder of Crows",
+"Naughty & Nice",
+"Needlers",
+"Neo-City Blasters",
+"Net Guns",
+"Nightmare Witnesses",
+"Nina's Blasters",
+"Ninpō Unsealed Blasters",
+"No Contest",
+"Outbreak Perfected",
+"Poppin’ TNTina",
+"Powerplay Blasters",
+"Protect & Serve",
+"Purgeand Exorcise",
+"Raycasters",
+"Refractors",
+"Repeating Crossbows",
+"Revolvers",
+"RGB Blasters",
+"Rippleand Wave",
+"Rose Gold Revolvers",
+"Royal Family",
+"Sacred Orders",
+"Salty Shooters",
+"Samaritans",
+"Sawbones",
+"Selenite Ray Guns",
+"Shadow Casters",
+"Sharkshooters",
+"Shriek & Wail",
+"Sidearms",
+"Signal Flares",
+"Silenced Pistols",
+"Silverand Steel",
+"Silver Bullets",
+"Silver Sixshooters",
+"Six ofa Kind",
+"Sixshooters",
+"Skyforged Blasters",
+"Smokers Mk. B",
+"Snake Eyes",
+"Snow Shooters",
+"Solar Flares",
+"Soul Blasters",
+"Space Shooters",
+"Special Forces Pistols",
+"Splish Splash",
+"Standard Issue",
+"Stardusters",
+"Starved Scavengers",
+"Tactical Pistols",
+"Tactical Sidearms",
+"Teacher's Pets",
+"Tempoand Groove",
+"The Consequences",
+"The Doctor's Orders",
+"The Hunters",
+"The Neutralizers",
+"The Roadhogs",
+"The Sequels",
+"The Singularities",
+"Thunder Bass Blasters",
+"Tide Turners",
+"Toybox Pistol",
+"Umbra Blasters",
+"Valiant Armament Blasters",
+"Vengeanceat Hand",
+"Vespian Six Shooter",
+"VM-19 Pistol & E-11 Blaster",
+"Wheel Locks",
+"Whirlwinds",
+"Winged Danger",
+"Wolf's Howl",
+"Wurm Shooters",
+"XLR8R's",
+"Zhaktari Issue",
+"Zipand Snap"
+//"Venom Spitters",
+//"Blaster Pistols",
+],
+    "spear":[],
+    "katars":[],
+    "axe":[],
+    "bow":[],
+    "gauntlets":[],
+    "scythe":[],
+    "cannon":[],
+    "orb":[],
+    "greatsword":[],
+    "battle boots":[],
+    "chakram":[
+"All Seeing Chakram",
+"Arcane Halo",
+"Asgardian Chakram",
+"Aztlán Chakram",
+"Boon of Mars",
+"Bug Fixer",
+"Circle of Light",
+"Clipeus Virtutis",
+"Consecrate",
+"Copy Cat",
+"Crystalforged Chakram",
+"Cyber Myk Chakram",
+"Darkheart Chakram",
+"Demon Art Kageshuriken",
+"Dwarven-forged Chakram",
+"Golden Order",
+"Goldforged Chakram",
+"Guild Chakram",
+"Hardlight Chakram",
+"Hringr of the Raven",
+"Jade Maw",
+"Jubilant Cymbal",
+"Lethal Coil",
+"Mercurial Reve",
+"Neo-City Chakram",
+"Nightmare Incisor",
+"Ninpō Unsealed Chakram",
+"Noxious Wheel",
+"Penitence",
+"Quantum War-Quoit",
+"RGB Chakram",
+"Scrollbar",
+"Shield of the Empire",
+"Skyforged Chakram",
+"Stories of Antiquity",
+"Sun Dust",
+"Toybox Chakram",
+"Umbra Chakram",
+"Waning Crescents",
+"Wheel of Thorns",
+],
+}
 }
 let list={};
 
 function handleDocumentLoad() {
     const urlParams = new URLSearchParams(window.location.search);
     let param = urlParams.get('type');
+    let subparam = urlParams.get('sub');
     var table = document.getElementById("table");
-
     if(param==""||param==null)
         for(let v in objdata)
-            maketitle(v,table,urlParams);
+            maketitle(v,table,urlParams,"");
     else if(param=="All")
         for(let v in objdata)
-             maketable(v,table,urlParams);
+            maketable(v,table,urlParams,objdata,"");
+    else if(param!=""&&subparam=="All"){
+        list[param]={};
+        for(let v in objdata[param])
+            maketable(v,table,urlParams,objdata[param],param);
+        }
+    else if(param!=""&&objdata[param].length==null&&(subparam==""||subparam==null))
+        for(let v in objdata[param])
+            maketitle(v,table,urlParams,param);
+    else if(param!=""&&subparam!=""){
+        list[param]={};
+        maketable(subparam,table,urlParams,objdata[param],param);}
     else if(objdata[param]==null){
-        urlParams.set('type', "");
+        urlParams.set('type', "");urlParams.set('sub', "");
         window.location.search = urlParams.toString();
     }else
-        maketable(param,table,urlParams);
+        maketable(param,table,urlParams,objdata,"");
 }
 
-function maketitle(v,defaulttable,urlParams){
+function maketitle(v,defaulttable,urlParams,extra){
     let footer = document.createElement('footer');
     let title = document.createElement('h1');
     let img = document.createElement('img');
@@ -621,25 +1248,38 @@ function maketitle(v,defaulttable,urlParams){
     footer.appendChild(img);footer.appendChild(title);footer.appendChild(img2);
     defaulttable.appendChild(footer);
     title.className="addselect";
-    title.innerHTML=v;
+    title.innerHTML=(extra=="")?v:(extra+": "+v);
     footer.addEventListener('click',()=>{
-        urlParams.set('type', v);
+        if(extra==""){urlParams.set('type', v);urlParams.set('sub',"");}
+        else{urlParams.set('type', extra);urlParams.set('sub', v);}
         window.location.search = urlParams.toString();});
 }
 
-
-
-function maketable(v,defaulttable,urlParams){
+function maketable(v,defaulttable,urlParams,objdata2,extra){
+    maketitle(v,defaulttable,urlParams,extra);
+    if(v!="All"){
         let table = document.createElement('footer');
-        maketitle(v,defaulttable,urlParams);
+
+    if(objdata2[v].length==null){
+        list[v]={};
+        for (let v2 in objdata2[v]){
+            maketable(v2,defaulttable,urlParams,objdata2[v],v);
+        }
+
+    }else{
+
+        if(extra=="")
+            list[v]=getCookielist(v);
+        else
+            list[extra][v]=getCookielist(extra,v);
         defaulttable.appendChild(table);
-        list[v]=getCookielist(v);
-        const gif=(v=="ko effects"||v=="trails");
-        for (let i = 0; i < objdata[v].length; i++)
-            makeframe(v,table,i,gif);
+        for (let i = 0; i < objdata2[v].length; i++)
+            makeframe(v,table,i,objdata2,extra);
+        }
+    }
 }
 
-function makeframe(typename,table,i,gif){
+function makeframe(typename,table,i,objdata,extra){
     let cell = document.createElement('a');
     let img = document.createElement('div');
     let img2 = document.createElement('img');
@@ -649,7 +1289,7 @@ function makeframe(typename,table,i,gif){
     cell.id="cell"+i+typename;
     let space = document.createElement('space');
     const tname=objdata[typename][i];
-    img2.src="/assets/"+typename+"/"+tname+((gif)?".gif":".png");
+    img2.src="/assets/"+extra+"/"+typename+"/"+tname+".png";
     img2.addEventListener('error',function() {img2.src="/assets/other/not_found.png";});
     cell.className="cell";
     let name = document.createElement('text');
@@ -661,8 +1301,8 @@ function makeframe(typename,table,i,gif){
     cell.appendChild(name);  
     table.appendChild(cell);
     if(type!=OWNINGTYPE.always&&type!=OWNINGTYPE.notown)
-        cell.addEventListener('click',()=>movetrail(typename,i,type));
-    setback(i,type,typename);
+        cell.addEventListener('click',()=>movetrail(typename,i,type,extra));
+    setback(i,type,typename,extra);
 }
 
 function gettype(typename){
@@ -674,7 +1314,14 @@ function gettype(typename){
         case "VALKRI Mk 1":
         case "Default Podium":
         case "Default Frame":
+        case "1More": case "BRB": case "Cry": case "Facepalm": case "GG": case "Heart": case "Laugh": case "LookinGood": case "Rage": case "RIP": case "Shrug": case "Smart": case "Sweat": case "Think": case "ThumbsDown": case "ThumbsUp": case "Wait": case "Wave": case "Wow": case "WP":
+
         return OWNINGTYPE.always;
+
+        case "Charmed, I'm Sure":case "Cyberlink Blasters":case "Death Throes":case "Hand Cannons":case "Hellhounds":case "Highwayman's Flintlocks":case "Los Volcanes":case "Selenite Ray Guns":case "Sidearms":case "Sixshooters":case "Vespian Six Shooter":case "Wheel Locks":
+        
+        case "Sun Dust":case "Quantum War-Quoit":case "Golden Order":case "Boon of Mars":
+        
 
         case "Slow Clap":
         case "Roof Dance":
@@ -683,14 +1330,19 @@ function gettype(typename){
     return OWNINGTYPE.buy;
 }
 
-function movetrail(typename,i,type){
-    list[typename]=bitflip(list[typename],i);
-    addCookie(list[typename],null,typename);
-    setback(i,type,typename);
+function movetrail(typename,i,type,extra){
+    if(extra!=""){
+        list[extra][typename]=bitflip(list[extra][typename],i);
+        addCookie(list[extra][typename],typename,extra);
+    }else{
+        list[typename]=bitflip(list[typename],i);
+        addCookie(list[typename],null,typename);
+    }
+    setback(i,type,typename,extra);
 }
 
-function setback(i,type,typename){
+function setback(i,type,typename,extra){
     var img = document.getElementById("img"+i+typename);
     var cell = document.getElementById("cell"+i+typename);
-    setherocolorccc(img,cell,bitget(list[typename],i),type);
+    setherocolorccc(img,cell,bitget(((extra=="")?list[typename]:((list[extra]==null)?[]:list[extra][typename])),i),type);
 }
