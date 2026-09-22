@@ -10,6 +10,7 @@ div.appendChild(traker("weapons"));
 div.appendChild(traker("titles"));
 div.appendChild(traker("other"));
 div.appendChild(other("missions"));
+//div.appendChild(other("battle pass"));
  
 document.body.appendChild(div);
 }
