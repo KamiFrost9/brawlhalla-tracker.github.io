@@ -27,7 +27,6 @@ const objdata={
 "Beautiful & Deadly",
 "Big Dog Blasters",
 "Birdshot",
-//"Blaster Pistols",
 "Blasters of Mercy",
 "Blazing Deringers",
 "Blazing Fire",
@@ -41,7 +40,7 @@ const objdata={
 "Candy Caliber",
 "Cannonades",
 "Catchand Release",
-"Charmed I'm Sure",
+"Charmed, I'm Sure",
 "Chicago Typewriters",
 "Close Quarters",
 "Commander and Chief",
@@ -198,6 +197,7 @@ const objdata={
 "Zhaktari Issue",
 "Zipand Snap"
 //"Venom Spitters",
+//"Blaster Pistols",
 ],
     "spear":[],
     "katars":[],
@@ -325,7 +325,7 @@ function makeframe(typename,table,i){
 function gettype(typename){
     switch(typename){
 
-
+        case "Charmed, I'm Sure":case "Cyberlink Blasters":case "Death Throes":case "Hand Cannons":case "Hellhounds":case "Highwayman's Flintlocks":case "Los Volcanes":case "Selenite Ray Guns":case "Sidearms":case "Sixshooters":case "Vespian Six Shooter":case "Wheel Locks":
         case "Sun Dust":case "Quantum War-Quoit":case "Golden Order":case "Boon of Mars":
         return OWNINGTYPE.notown;
     }
