@@ -960,7 +960,7 @@ const objdata={"All":[],
 "WP Sylvan Cleric",
 "WP Tuxedo Bandit"
 ]},
-"weapons":
+    "weapons":
 {
     "All":[],
     "sword":[],
