@@ -4,10 +4,10 @@ import { OWNINGTYPE } from '../../libs/colorsname.js';
 import {bitget,bitflip } from '../../libs/bitlist.js';
 import { addCookie,getCookielist} from '../../libs/cookies.js';
 
-var list=getCookielist("legendsown");
 document.addEventListener ("DOMContentLoaded", handleDocumentLoad);
 
 const objdata={
+    "All":[],
     "insignias":[
 "Brawler's Insignia",
 "Founder's Insignia",
@@ -591,24 +591,48 @@ const objdata={
 ],
     "emojis":[]
 }
+let list={};
 
 function handleDocumentLoad() {
+    const urlParams = new URLSearchParams(window.location.search);
+    let param = urlParams.get('type');
     var table = document.getElementById("table");
-    for(let v in objdata)
-        maketable(v,table);
+
+    if(param==""||param==null)
+        for(let v in objdata)
+            maketitle(v,table,urlParams);
+    else if(param=="All")
+        for(let v in objdata)
+             maketable(v,table,urlParams);
+    else if(objdata[param]==null){
+        urlParams.set('type', "");
+        window.location.search = urlParams.toString();
+    }else
+        maketable(param,table,urlParams);
 }
 
-function maketable(v,defaulttable){
+function maketitle(v,defaulttable,urlParams){
+    let footer = document.createElement('footer');
+    let title = document.createElement('h1');
+    let img = document.createElement('img');
+    let img2 = document.createElement('img');
+    img.src="/assets/icons/"+v+"_icon.png";img2.src=img.src;
+    img.className="img5";img2.className="img5";footer.className="footer2";
+    footer.appendChild(img);footer.appendChild(title);footer.appendChild(img2);
+    defaulttable.appendChild(footer);
+    title.className="addselect";
+    title.innerHTML=v;
+    footer.addEventListener('click',()=>{
+        urlParams.set('type', v);
+        window.location.search = urlParams.toString();});
+}
+
+
+
+function maketable(v,defaulttable,urlParams){
         let table = document.createElement('footer');
-        let footer = document.createElement('footer');
-        let title = document.createElement('h1');
-        let img = document.createElement('img');
-        let img2 = document.createElement('img');
-        img.src="/assets/icons/"+v+"_icon.png";img2.src=img.src;
-        img.className="img5";img2.className="img5";footer.className="footer2";
-        footer.appendChild(img);footer.appendChild(title);footer.appendChild(img2);
-        defaulttable.appendChild(footer);defaulttable.appendChild(table);
-        title.innerHTML=v;
+        maketitle(v,defaulttable,urlParams);
+        defaulttable.appendChild(table);
         list[v]=getCookielist(v);
         const gif=(v=="ko effects"||v=="trails");
         for (let i = 0; i < objdata[v].length; i++)
